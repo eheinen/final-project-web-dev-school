@@ -1,14 +1,11 @@
-package com.eduardoheinen.school.entity;
-
-import java.util.HashSet;
-import java.util.Set;
+package com.eduardoheinen.school.entity.school;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Department {
+public class KnowledgeArea {
 
 	@Id
 	@Column(name="ID")
@@ -16,9 +13,6 @@ public class Department {
 	
 	@Column(name="NAME")
 	private String name;
-	
-	private Set<School> schools = new HashSet<School>();
-	
 
 	public int getId() {
 		return id;
@@ -31,5 +25,5 @@ public class Department {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 }

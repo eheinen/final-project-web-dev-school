@@ -1,11 +1,11 @@
-package com.eduardoheinen.school.entity;
+package com.eduardoheinen.school.entity.school;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Classroom {
+public class Discipline {
 
 	@Id
 	@Column(name="ID")
@@ -14,7 +14,6 @@ public class Classroom {
 	@Column(name="NAME")
 	private String name;
 	
-
 	public int getId() {
 		return id;
 	}

@@ -1,12 +1,12 @@
-package com.eduardoheinen.school.entity;
+package com.eduardoheinen.school.entity.school;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Exam {
-	
+public class Classroom {
+
 	@Id
 	@Column(name="ID")
 	private int id;
@@ -14,8 +14,6 @@ public class Exam {
 	@Column(name="NAME")
 	private String name;
 	
-	@Column(name="GRADE")
-	private float grade;	
 
 	public int getId() {
 		return id;
@@ -28,7 +26,5 @@ public class Exam {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 
 }

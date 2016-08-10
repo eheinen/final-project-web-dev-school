@@ -1,11 +1,11 @@
-package com.eduardoheinen.school.entity;
+package com.eduardoheinen.school.entity.school;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class KnowledgeAreas {
+public class Course {
 
 	@Id
 	@Column(name="ID")
@@ -13,6 +13,10 @@ public class KnowledgeAreas {
 	
 	@Column(name="NAME")
 	private String name;
+	
+	@Column(name="KNOWLEDGE_AREA")
+	private KnowledgeArea knowledgeArea;
+	
 
 	public int getId() {
 		return id;
@@ -25,5 +29,6 @@ public class KnowledgeAreas {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	
 }
