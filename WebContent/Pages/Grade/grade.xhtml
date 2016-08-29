@@ -30,14 +30,14 @@
 			
 			<div class="btn-default">
 				<h:commandLink action="#{gradeMB.getExamResults()}">
-				<f:ajax render="@form" />
+				<f:ajax execute="@form" render="gradeTable" />
 					<h:graphicImage library="images" name="#{gradeMB.actions.image}" />
 					<h:outputLabel value="#{gradeMB.actions.value}" />
 				</h:commandLink>
 			</div>
 
 			<div class="table-default">
-				<h:dataTable value="#{gradeMB.getExamResults()}" var="grade">
+				<h:dataTable value="#{gradeMB.getExamResults()}" var="grade" id="gradeTable">
 
 					<h:column>
 						<f:facet name="header">Discipline</f:facet>

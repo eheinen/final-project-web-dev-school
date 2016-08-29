@@ -29,7 +29,7 @@ public class GradeMB implements Serializable {
 		discipline = new Discipline();
 		messages = new Messages();
 		actions = new Actions();
-		actions.setAddAction();
+		actions.setSearchAction();
 	}
 
 	public Actions getActions() {
