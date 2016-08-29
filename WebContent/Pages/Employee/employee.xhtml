@@ -1,0 +1,179 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Employees</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{employeeMB.messages.type}">
+			<h:outputText value="#{employeeMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Employee</h1>
+
+		<h:form id="form-employee">
+
+			<h:inputText value="#{employeeMB.employee.name}" id="employeeName"
+				a:placeholder="Type the employee name" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<h:inputText value="#{employeeMB.employee.cpf}"
+				a:placeholder="Type the CPF" a:class="required" />
+			<br />
+			
+			<h:selectOneMenu value="#{employeeMB.employee.gender}" >
+				<f:selectItem itemLabel="Select a gender" />
+			    <f:selectItems value="#{enumMB.getGenderList()}" />
+			</h:selectOneMenu>
+			<br />
+			
+			<h:selectOneMenu value="#{employeeMB.employee.user.profile}" >
+				<f:selectItem itemLabel="Select a user profile" />
+			    <f:selectItems value="#{enumMB.getProfileEmployeeList()}" />
+			</h:selectOneMenu>
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.birthdate}"
+				a:placeholder="Type the birthdate" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.telephone}"
+				a:placeholder="Type the telephone" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.email}"
+				a:placeholder="Type the email" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.role}"
+				a:placeholder="Type the role" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.salaryPerHour}" id="salaryPerHour"
+				a:placeholder="Type the salary per hour" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.weeklyHour}" id="weeklyHour"
+				a:placeholder="Type the weekly hour" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.engagedStartDate}"
+				a:placeholder="Type the engaged start date" a:class="required" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:inputText value="#{employeeMB.employee.engagedEndDate}"
+				a:placeholder="Type the engaged end date" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:selectOneMenu value="#{employeeMB.employee.school}"
+				converter="com.eheinen.school.SchoolConverter">
+				<f:selectItem itemLabel="Select a school" />
+				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
+					itemLabel="#{school.name}" itemValue="#{school}" />				
+			</h:selectOneMenu>
+			<br />
+
+			<h:inputText value="#{employeeMB.employee.address.country}" id="employeeCountry"
+				a:placeholder="Type the country" a:class="required" />
+			<br />
+
+			<h:inputText value="#{employeeMB.employee.address.state}" id="employeeState"
+				a:placeholder="Type the state" a:class="required" />
+			<br />
+
+			<h:inputText value="#{employeeMB.employee.address.city}" id="employeeCity"
+				a:placeholder="Type the city" a:class="required" />
+			<br />
+
+			<h:inputText value="#{employeeMB.employee.address.address}" id="employeeAddress"
+				a:placeholder="Type the address" a:class="required" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{employeeMB.createEmployee()}">
+					<h:graphicImage library="images" name="#{employeeMB.actions.image}" />
+					<h:outputLabel value="#{employeeMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{employeeMB.getEmployeeList()}" var="employee">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{employeeMB.removeEmployee()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{employee.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{employeeMB.prepareToEdit()}">
+								<f:param name="id" value="#{employee.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{employee.name}" outcome="employee" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Role</f:facet>
+					<h:outputText value="#{employee.role}" outcome="employee" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">CPF</f:facet>
+					<h:outputText value="#{employee.cpf}" outcome="employee" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Gender</f:facet>
+					<h:outputText value="#{employee.gender}" outcome="employee" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Telephone</f:facet>
+					<h:outputText value="#{employee.telephone}" outcome="employee" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					<h:outputText value="#{employee.email}" outcome="employee" />
+				</h:column>
+		
+				
+				<h:column>
+					<f:facet name="header">School</f:facet>
+					<h:outputText value="#{employee.school.name}" outcome="school" />
+				</h:column>
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

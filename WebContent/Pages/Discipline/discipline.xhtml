@@ -1,0 +1,83 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Disciplines</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{discMB.messages.type}">
+			<h:outputText value="#{discMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Discipline</h1>
+
+		<h:form id="form-discipline">
+
+			<h:inputText value="#{discMB.discipline.name}" id="disciplineName"
+				a:placeholder="Type the discipline name" a:autofocus="true"
+				a:class="required" />
+			<br />
+			
+			<h:selectOneMenu value="#{discMB.discipline.course}"
+				converter="com.eheinen.school.CourseConverter">
+				<f:selectItem itemLabel="Select a course" />
+				<f:selectItems value="#{courseMB.getCourseList()}" var="course"
+					itemLabel="#{course.name}" itemValue="#{course}" />				
+			</h:selectOneMenu>
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{discMB.createDiscipline()}">
+					<h:graphicImage library="images" name="#{discMB.actions.image}" />
+					<h:outputLabel value="#{discMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{discMB.getDisciplineList()}" var="discipline">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{discMB.removeDiscipline()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{discipline.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{discMB.prepareToEdit()}">
+								<f:param name="id" value="#{discipline.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{discipline.name}" outcome="discipline" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Course</f:facet>
+					<h:outputText value="#{discipline.course.name}" outcome="course" />
+				</h:column>
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

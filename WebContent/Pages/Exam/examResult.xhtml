@@ -1,0 +1,130 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">ExamResults</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{examResultMB.messages.type}">
+			<h:outputText value="#{examResultMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Exam Result</h1>
+
+		<h:form id="form-examResult">
+
+			<h:selectOneMenu value="#{examResultMB.examResult.exam}"
+				converter="com.eheinen.school.ExamConverter">
+				<f:selectItem itemLabel="Select an exam" />
+				<f:selectItems value="#{examMB.getExamList()}" var="exam"
+					itemLabel="#{exam.name}" itemValue="#{exam}" />
+			</h:selectOneMenu>
+			<br />
+
+			<h:inputText value="#{examResultMB.examResult.date}"
+				id="examResultDate" a:class="required">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<br />
+
+			<h:selectOneMenu value="#{examResultMB.examResult.student}"
+				converter="com.eheinen.school.StudentConverter">
+				<f:selectItem itemLabel="Select a student" />
+				<f:selectItems value="#{studentMB.getStudentList()}" var="student"
+					itemLabel="#{student.name}" itemValue="#{student}" />
+			</h:selectOneMenu>
+			<br />
+
+			<h:inputText value="#{examResultMB.examResult.grade}"
+				id="examResultGrade" a:class="required" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{examResultMB.createExamResult()}">
+					<h:graphicImage library="images"
+						name="#{examResultMB.actions.image}" />
+					<h:outputLabel value="#{examResultMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+			<div class="table-default">
+				<h:dataTable value="#{examResultMB.getExamResultList()}"
+					var="examResult">
+
+					<h:column headerClass="action">
+						<f:facet name="header">Actions</f:facet>
+						<h:form id="form-action">
+							<div class="btn-actions">
+								<h:commandLink action="#{examResultMB.removeExamResult()}"
+									onclick="return confirmDelete()">
+									<f:param name="id" value="#{examResult.id}" />
+									<div class="btn-action">
+										<h:graphicImage library="images" name="remove.png" />
+									</div>
+								</h:commandLink>
+								<h:commandLink action="#{examResultMB.prepareToEdit()}">
+									<f:param name="id" value="#{examResult.id}" />
+									<div class="btn-action">
+										<h:graphicImage library="images" name="edit.png" />
+									</div>
+								</h:commandLink>
+							</div>
+						</h:form>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Exam</f:facet>
+						<h:outputText value="#{examResult.exam.name}" outcome="examResult" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Exam Date</f:facet>
+						<h:outputText value="#{examResult.date}" outcome="examResult">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">School Class</f:facet>
+						<h:outputText value="#{examResult.exam.schoolClass.name}"
+							outcome="examResult" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Teacher</f:facet>
+						<h:outputText value="#{examResult.exam.teacher.name}"
+							outcome="examResult" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Student</f:facet>
+						<h:outputText value="#{examResult.student.name}"
+							outcome="examResult" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Exam Points %</f:facet>
+						<h:outputText value="#{examResult.exam.pointsPercent}"
+							outcome="examResult" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Grade</f:facet>
+						<h:outputText value="#{examResult.grade}"
+							outcome="examResult" />
+					</h:column>
+
+				</h:dataTable>
+			</div>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

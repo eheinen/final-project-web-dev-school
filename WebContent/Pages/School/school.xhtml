@@ -1,0 +1,110 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Schools</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{schoolMB.messages.type}">
+			<h:outputText value="#{schoolMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">School</h1>
+
+		<h:form id="form-school">
+
+			<h:selectOneMenu value="#{schoolMB.school.department}"
+				converter="com.eheinen.school.DepartmentConverter">
+				<f:selectItem itemLabel="Select a department" />
+				<f:selectItems value="#{departMB.getDepartmentList()}" var="depart"
+					itemLabel="#{depart.name}" itemValue="#{depart}" />				
+			</h:selectOneMenu>
+			<br />
+
+			<h:inputText value="#{schoolMB.school.name}" id="schoolName"
+				a:placeholder="Type the school name" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<h:inputText value="#{schoolMB.school.minAverage}"
+				id="schoolMinAverage"
+				a:placeholder="Type the min average to approve" a:class="required" />
+			<br />
+
+			<h:inputText value="#{schoolMB.school.address.country}" id="schoolCountry"
+				a:placeholder="Type the country" a:class="required" />
+			<br />
+
+			<h:inputText value="#{schoolMB.school.address.state}" id="schoolState"
+				a:placeholder="Type the state" a:class="required" />
+			<br />
+
+			<h:inputText value="#{schoolMB.school.address.city}" id="schoolCity"
+				a:placeholder="Type the city" a:class="required" />
+			<br />
+
+			<h:inputText value="#{schoolMB.school.address.address}" id="schoolAddress"
+				a:placeholder="Type the address" a:class="required" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{schoolMB.createSchool()}">
+					<h:graphicImage library="images" name="#{schoolMB.actions.image}" />
+					<h:outputLabel value="#{schoolMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{schoolMB.getSchoolList()}" var="school">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{schoolMB.removeSchool()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{school.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{schoolMB.prepareToEdit()}">
+								<f:param name="id" value="#{school.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Department</f:facet>
+					<h:outputText value="#{school.department.name}"
+						outcome="department" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{school.name}" outcome="school" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{school.minAverage}" outcome="school" />
+				</h:column>
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

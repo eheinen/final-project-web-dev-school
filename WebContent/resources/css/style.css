@@ -1,0 +1,273 @@
+html {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	width: 100%;
+	height: 100%;
+}
+
+*:focus {
+	outline: none;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+a {
+	text-decoration: none;
+}
+
+input, select {
+	height: 30px;
+	width: 35%;
+	padding: 5px;
+	text-align: center;
+	margin: 10px 0 10px 0;
+	font-size: 14px;
+}
+
+select {
+	width: 36%;
+	font-size: 16px !important;
+}
+
+.btn-default {
+	display: inline-block;
+	-webkit-appearance: none;
+	background-color: #EEE;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+	margin: auto;
+	padding: 12px;
+}
+
+.btn-default label {
+	color: #000;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn-default img {
+	height: 18px;
+	margin-right: 10px;
+	vertical-align: bottom;
+	cursor: pointer;
+}
+
+#principal-content {
+	position: relative;
+}
+
+#message {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	padding-left: 10px;
+	line-height: 2.8;
+	font-size: 18px;
+	display: none;
+}
+
+#message.fail {
+	background-color: #FFCDD2;
+	color: #D32F2F;
+}
+
+#message.success {
+	background-color: #F0F4C3;
+	color: #2b7913;
+}
+
+#message.warning {
+	background-color: #FFECB3;
+	color: #a9980a;
+}
+
+#content {
+	padding: 20px 0 20px 0;
+	padding-top: 70px;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+#content .title {
+	font-size: 25px;
+}
+
+#footer {
+	width: 100%;
+	height: 80px;
+	background-color: #E64A19;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#form-login input {
+	height: 50px;
+}
+
+#top-menu {
+	width: 100%;
+	height: 10px;
+	background-color: #E64A19;
+}
+
+#menu {
+	width: 100%;
+	height: 40px;
+	background-color: #FF5722;
+	padding-top: 15px;
+}
+
+#menu #form-nav a {
+	font-size: 20px;
+	color: #FFFFFF;
+	font-family: serif;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+#menu #form-nav a.home {
+	margin-left: 20px;
+}
+
+#menu #form-nav a.logout {
+	float: right;
+	margin-left: 20px;
+}
+
+#menu .dropdown {
+	display: inline-table;
+	font-size: 20px;
+	color: #FFFFFF;
+	font-family: serif;
+	width: 150px;
+	text-align: center;
+	margin-right: 20px;
+}
+
+#menu .dropdown-content {
+	display: none;
+	position: relative;
+	background-color: #f9f9f9;
+	min-width: 80px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+	text-align: center;
+}
+
+#menu .dropdown-content:hover {
+	background-color: #f4f4f4;
+}
+
+#menu .dropdown-content a {
+	color: #E64A19 !important;
+	font-size: 16px !important;
+	margin-right: 0 !important;
+	float: none !important;
+	text-align: center !important;
+}
+
+#menu .dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.table-default {
+	text-align: center;
+	margin: auto auto;
+	margin-top: 50px;
+	width: 70%;
+}
+
+.table-default table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.table-default th, td {
+	border-bottom: 1px solid #ddd;
+	padding: 0 !important;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	text-align: center !important;
+}
+
+.table-default th {
+	padding-top: 18px !important;
+	padding-bottom: 18px !important;
+}
+
+.table-default td {
+	height: 40px;
+}
+
+.table-default th.action {
+	width: 130px;
+	text-align: center;
+}
+
+.table-default th.action.sorting_asc {
+	background-image: none !important;
+}
+
+.table-default th.action.sorting_desc {
+	background-image: none !important;
+}
+
+.table-default th.action.sorting {
+	background-image: none !important;
+}
+
+.table-default th {
+	background-color: #EEE;
+	color: #333;
+}
+
+.table-default tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+.table-default .btn-actions {
+	display: table;
+	margin: auto;
+}
+
+.table-default .btn-actions a {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.table-default .btn-actions img {
+	height: 20px;
+}
+
+.not-filled {
+	box-shadow: 0 0.2px 1.7px 0.4px #CC0000;
+}
+
+a.home{ display: none; }
+a.logout{ display: none; }
+#mn-administrative { display: none; }
+#mn-school { display: none; }
+#mn-teacher-area { display: none; }
+#mn-student-area { display: none; }
+

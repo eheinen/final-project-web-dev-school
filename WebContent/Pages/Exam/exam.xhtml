@@ -1,0 +1,145 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Exams</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{examMB.messages.type}">
+			<h:outputText value="#{examMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Exam</h1>
+
+		<h:form id="form-exam">
+
+			<h:inputText value="#{examMB.exam.name}" id="examName"
+				a:placeholder="Type the exam name" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<h:inputText value="#{examMB.exam.pointsPercent}" id="examPointsPercent"
+				a:placeholder="Type the % of points" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<h:selectOneMenu value="#{examMB.exam.school}"
+				converter="com.eheinen.school.SchoolConverter">
+				<f:selectItem itemLabel="Select a school" />
+				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
+					itemLabel="#{school.name}" itemValue="#{school}" />
+			</h:selectOneMenu>
+			<br />
+
+			<h:selectOneMenu value="#{examMB.exam.course}"
+				converter="com.eheinen.school.CourseConverter">
+				<f:selectItem itemLabel="Select a course" />
+				<f:selectItems value="#{courseMB.getCourseList()}" var="course"
+					itemLabel="#{course.name}" itemValue="#{course}" />
+			</h:selectOneMenu>
+			<br />
+
+			<h:selectOneMenu value="#{examMB.exam.discipline}"
+				converter="com.eheinen.school.DisciplineConverter">
+				<f:selectItem itemLabel="Select a discipline" />
+				<f:selectItems value="#{discMB.getDisciplineList()}" var="disc"
+					itemLabel="#{disc.name}" itemValue="#{disc}" />
+			</h:selectOneMenu>
+			<br />
+
+			<h:selectOneMenu value="#{examMB.exam.teacher}"
+				converter="com.eheinen.school.TeacherConverter">
+				<f:selectItem itemLabel="Select a teacher" />
+				<f:selectItems value="#{teacherMB.getTeacherList()}" var="teacher"
+					itemLabel="#{teacher.name}" itemValue="#{teacher}" />
+			</h:selectOneMenu>
+			<br />
+
+			<h:selectOneMenu value="#{examMB.exam.schoolClass}"
+				converter="com.eheinen.school.SchoolClassConverter">
+				<f:selectItem itemLabel="Select a school class" />
+				<f:selectItems value="#{schoolClassMB.getSchoolClassList()}" var="schoolClass"
+					itemLabel="#{schoolClass.name}" itemValue="#{schoolClass}" />
+			</h:selectOneMenu>
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{examMB.createExam()}">
+					<h:graphicImage library="images" name="#{examMB.actions.image}" />
+					<h:outputLabel value="#{examMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{examMB.getExamList()}" var="exam">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{examMB.removeExam()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{exam.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{examMB.prepareToEdit()}">
+								<f:param name="id" value="#{exam.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{exam.name}" outcome="exam" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Points %</f:facet>
+					<h:outputText value="#{exam.pointsPercent}" outcome="exam" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">School</f:facet>
+					<h:outputText value="#{exam.school.name}" outcome="exam" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Course</f:facet>
+					<h:outputText value="#{exam.course.name}" outcome="exam" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Discipline</f:facet>
+					<h:outputText value="#{exam.discipline.name}" outcome="exam" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Teacher</f:facet>
+					<h:outputText value="#{exam.teacher.name}" outcome="exam" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">School Class</f:facet>
+					<h:outputText value="#{exam.schoolClass.name}" outcome="exam" />
+				</h:column>
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

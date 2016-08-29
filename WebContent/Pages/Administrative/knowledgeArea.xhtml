@@ -1,0 +1,68 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">KnowledgeAreas</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{knowAreaMB.messages.type}">
+			<h:outputText value="#{knowAreaMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Knowledge Area</h1>
+
+		<h:form id="form-knowledgeArea">
+
+			<h:inputText value="#{knowAreaMB.knowledgeArea.name}"
+				id="knowledgeAreaName" a:placeholder="Type the knowledgeArea name"
+				a:autofocus="true" a:class="required" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{knowAreaMB.createKnowledgeArea()}">
+					<h:graphicImage library="images" name="#{knowAreaMB.actions.image}" />
+					<h:outputLabel value="#{knowAreaMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{knowAreaMB.getKnowledgeAreaList()}"
+				var="knowledgeArea">
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{knowAreaMB.removeKnowledgeArea()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{knowledgeArea.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{knowAreaMB.prepareToEdit()}">
+								<f:param name="id" value="#{knowledgeArea.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{knowledgeArea.name}" outcome="knowledgeArea" />
+				</h:column>
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,24 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="content">
+		<h1>README</h1>
+		<p>Olá professor Emilio, segue abaixo algumas notas sobre o trabalho:</p>
+		<ol style="text-align: left">
+			<li>Para utilizar o sistema crie primeiro um departamento que pode conter várias escolas. Nesse caso você já pode testar se é possível criar uma escola sem departamento.</li>
+			<li>Foi criado os seguintes perfis de acesso:
+				<ol>
+					<li>Master - Acesso total a todas as telas de todas as sessões do sistema</li>
+					<li>Admin - Acesso total a todas as telas da sessão Administrative</li>
+					<li>School - Acesso total a todas as telas da sessão School Area</li>
+					<li>Teacher Area - Acesso total a todas as telas da sessão Teacher Area</li>
+					<li>Student Area - Acesso total a todas as telas da sessão Student Area</li>
+				</ol>
+			</li>
+		</ol>
+	</ui:define>
+</ui:composition>

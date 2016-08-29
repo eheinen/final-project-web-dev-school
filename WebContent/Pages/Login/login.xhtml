@@ -1,0 +1,39 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Fiap School</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{userMB.messages.type}">
+			<h:outputText value="#{userMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form-login">
+			<h1 class="title">Authentication</h1>
+
+			<h:inputText value="#{userMB.user.username}" a:placeholder="Username" />
+			<br />
+			<h:inputSecret value="#{userMB.user.password}"
+				a:placeholder="Password" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{userMB.authenticate()}">
+					<h:graphicImage library="images" name="#{userMB.actions.image}" />
+					<h:outputLabel value="#{userMB.actions.value}" />
+				</h:commandLink>
+			</div>
+			<br />
+			<br />
+
+			<h:commandLink action="#{userMB.firstAccess()}"
+				value="Is it your first access?" />
+		</h:form>
+	</ui:define>
+</ui:composition>

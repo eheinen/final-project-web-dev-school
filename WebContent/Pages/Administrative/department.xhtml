@@ -1,0 +1,67 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Departments</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{departMB.messages.type}">
+			<h:outputText value="#{departMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Department</h1>
+
+		<h:form id="form-department">
+
+			<h:inputText value="#{departMB.department.name}" id="departmentName"
+				a:placeholder="Type the department name" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{departMB.createDepartment()}">
+					<h:graphicImage library="images" name="#{departMB.actions.image}" />
+					<h:outputLabel value="#{departMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{departMB.getDepartmentList()}" var="department">
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{departMB.removeDepartment()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{department.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{departMB.prepareToEdit()}">
+								<f:param name="id" value="#{department.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{department.name}" outcome="department" />
+				</h:column>
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

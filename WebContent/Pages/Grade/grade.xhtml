@@ -1,0 +1,85 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Grades</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{gradeMB.messages.type}">
+			<h:outputText value="#{gradeMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Grade</h1>
+
+		<h:form id="form-grade">
+
+			<h:selectOneMenu value="#{gradeMB.discipline}" id="discipline"
+				converter="com.eheinen.school.DisciplineConverter">
+				<f:selectItem itemLabel="Select a discipline" />
+				<f:selectItems value="#{discMB.getDisciplineList()}"
+					var="disc" itemLabel="#{disc.name}"
+					itemValue="#{disc}" />
+			</h:selectOneMenu>
+			<br />
+			
+			<div class="btn-default">
+				<h:commandLink action="#{gradeMB.getExamResults()}">
+				<f:ajax render="@form" />
+					<h:graphicImage library="images" name="#{gradeMB.actions.image}" />
+					<h:outputLabel value="#{gradeMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+			<div class="table-default">
+				<h:dataTable value="#{gradeMB.getExamResults()}" var="grade">
+
+					<h:column>
+						<f:facet name="header">Discipline</f:facet>
+						<h:outputText value="#{grade.exam.discipline.name}" outcome="grade" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Teacher</f:facet>
+						<h:outputText value="#{grade.exam.teacher.name}" outcome="grade" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Exam</f:facet>
+						<h:outputText value="#{grade.exam.name}" outcome="grade" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+						<h:outputText value="#{grade.date}" outcome="grade" >
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Student</f:facet>
+						<h:outputText value="#{grade.student.name}" outcome="grade" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Grade</f:facet>
+						<h:outputText value="#{grade.grade}" outcome="grade" />
+					</h:column>
+
+				</h:dataTable>
+			</div>
+
+		</h:form>
+
+
+
+
+
+	</ui:define>
+
+</ui:composition>

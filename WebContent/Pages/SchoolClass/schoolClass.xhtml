@@ -1,0 +1,144 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">SchoolClasss</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{schoolClassMB.messages.type}">
+			<h:outputText value="#{schoolClassMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">School Class</h1>
+
+		<h:form id="form-schoolClass">
+
+			<h:inputText value="#{schoolClassMB.schoolClass.name}" id="schoolClassName"
+				a:placeholder="Type the school Class name" a:autofocus="true"
+				a:class="required" />
+			<br />
+			
+			<h:selectOneMenu value="#{schoolClassMB.schoolClass.school}"
+				converter="com.eheinen.school.SchoolConverter">
+				<f:selectItem itemLabel="Select a school" />
+				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
+					itemLabel="#{school.name}" itemValue="#{school}" />				
+			</h:selectOneMenu>
+			<br />
+			
+			<h:selectOneMenu value="#{schoolClassMB.schoolClass.course}"
+				converter="com.eheinen.school.CourseConverter">
+				<f:selectItem itemLabel="Select a course" />
+				<f:selectItems value="#{courseMB.getCourseList()}" var="course"
+					itemLabel="#{course.name}" itemValue="#{course}" />				
+			</h:selectOneMenu>
+			<br />
+			
+			<h:selectOneMenu value="#{schoolClassMB.schoolClass.status}" >
+				<f:selectItem itemLabel="Select a status" />
+			    <f:selectItems value="#{enumMB.getSchoolClassStatusList()}" />
+			</h:selectOneMenu>
+			<br />
+			
+			<h:selectOneMenu value="#{schoolClassMB.schoolClass.educationType}" >
+				<f:selectItem itemLabel="Select an education type" />
+			    <f:selectItems value="#{enumMB.getEducationTypeList()}" />
+			</h:selectOneMenu>
+			<br />
+			
+			<h:inputText value="#{schoolClassMB.schoolClass.startDate}"
+				a:placeholder="Type the start date" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:inputText value="#{schoolClassMB.schoolClass.endDate}"
+				a:placeholder="Type the end date" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{schoolClassMB.createSchoolClass()}">
+					<h:graphicImage library="images" name="#{schoolClassMB.actions.image}" />
+					<h:outputLabel value="#{schoolClassMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{schoolClassMB.getSchoolClassList()}" var="schoolClass">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{schoolClassMB.removeSchoolClass()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{schoolClass.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{schoolClassMB.prepareToEdit()}">
+								<f:param name="id" value="#{schoolClass.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{schoolClass.name}" outcome="schoolClass" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Type</f:facet>
+					<h:outputText value="#{schoolClass.educationType}" outcome="schoolClass" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">School</f:facet>
+					<h:outputText value="#{schoolClass.school.name}" outcome="schoolClass" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Course</f:facet>
+					<h:outputText value="#{schoolClass.course.name}" outcome="schoolClass" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Status</f:facet>
+					<h:outputText value="#{schoolClass.status}" outcome="schoolClass" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Start Date</f:facet>
+					<h:outputText value="#{schoolClass.startDate}" outcome="schoolClass" >
+						<f:convertDateTime pattern="dd/MM/yyyy"/>  
+					</h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">End Date</f:facet>
+					<h:outputText value="#{schoolClass.endDate}" outcome="schoolClass" >
+						<f:convertDateTime pattern="dd/MM/yyyy"/>  
+					</h:outputText>
+				</h:column>				
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

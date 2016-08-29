@@ -1,0 +1,159 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<nav id="nav-menu">
+		<div id="top-menu"></div>
+		<div id="menu">
+			
+			<h:form id="form-nav">
+
+				<h:commandLink value="Home" action="#{navMB.navigateToPage()}" class="home" id="mn-home">
+					<f:param name="path" value="Home" />
+					<f:param name="name" value="home" />
+				</h:commandLink>
+
+				<div class="dropdown" id="mn-administrative">
+					<span>Administrative</span>
+					<div class="dropdown-content">
+						<h:commandLink value="Department"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Administrative" />
+							<f:param name="name" value="department" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="School"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="School" />
+							<f:param name="name" value="school" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Employee"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Employee" />
+							<f:param name="name" value="employee" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Teacher"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Teacher" />
+							<f:param name="name" value="teacher" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Student"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Student" />
+							<f:param name="name" value="student" />
+						</h:commandLink>
+					</div>
+
+				</div>
+
+				<div class="dropdown" id="mn-school">
+					<span>School Area</span>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Course"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Course" />
+							<f:param name="name" value="course" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Discipline"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Discipline" />
+							<f:param name="name" value="discipline" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Knowledge Area"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Administrative" />
+							<f:param name="name" value="knowledgeArea" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="School Class"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="SchoolClass" />
+							<f:param name="name" value="schoolClass" />
+						</h:commandLink>
+					</div>
+
+					<div class="dropdown-content">
+						<h:commandLink value="Schedule Classroom"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Classroom" />
+							<f:param name="name" value="classroom" />
+						</h:commandLink>
+					</div>
+
+				</div>
+
+				<div class="dropdown" id="mn-teacher-area">
+					<span>Teacher Area</span>
+					
+					<div class="dropdown-content">
+					
+						<h:commandLink value="Exams"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Exam" />
+							<f:param name="name" value="exam" />
+						</h:commandLink>
+					</div>
+					
+					<div class="dropdown-content">
+						<h:commandLink value="Exam Result"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Exam" />
+							<f:param name="name" value="examResult" />
+						</h:commandLink>
+					</div>
+					
+				</div>
+
+				<div class="dropdown" id="mn-student-area">
+					<span>Student Area</span>
+					
+					<div class="dropdown-content">
+						<h:commandLink value="Grades"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Grade" />
+							<f:param name="name" value="grade" />
+						</h:commandLink>
+					</div>
+					
+					<div class="dropdown-content">
+						<h:commandLink value="School Report"
+							action="#{navMB.navigateToPage()}">
+							<f:param name="path" value="Report" />
+							<f:param name="name" value="schoolReport" />
+						</h:commandLink>
+					</div>
+					
+				</div>
+
+				<h:commandLink value="Logout" action="#{userMB.logout()}" class="logout" id="mn-logout">
+					<f:param name="path" value="Home" />
+					<f:param name="name" value="home" />
+				</h:commandLink>
+
+			</h:form>
+
+		</div>
+	</nav>
+
+</ui:composition>

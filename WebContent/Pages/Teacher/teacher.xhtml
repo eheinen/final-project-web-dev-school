@@ -1,0 +1,164 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Teachers</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{teacherMB.messages.type}">
+			<h:outputText value="#{teacherMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Teacher</h1>
+
+		<h:form id="form-teacher">
+
+			<h:inputText value="#{teacherMB.teacher.name}" id="teacherName"
+				a:placeholder="Type the teacher name" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<h:inputText value="#{teacherMB.teacher.cpf}"
+				a:placeholder="Type the CPF" a:class="required" />
+			<br />
+			
+			<h:selectOneMenu value="#{teacherMB.teacher.gender}" >
+				<f:selectItem itemLabel="Select a gender" />
+			    <f:selectItems value="#{enumMB.getGenderList()}" />
+			</h:selectOneMenu>
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.birthdate}"
+				a:placeholder="Type the birthdate" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.telephone}"
+				a:placeholder="Type the telephone" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.email}"
+				a:placeholder="Type the email" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.salaryPerHour}" id="salaryPerHour"
+				a:placeholder="Type the salary per hour" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.weeklyHour}" id="weeklyHour"
+				a:placeholder="Type the weekly hour" a:class="required" />
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.engagedStartDate}"
+				a:placeholder="Type the engaged start date" a:class="required" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:inputText value="#{teacherMB.teacher.engagedEndDate}"
+				a:placeholder="Type the engaged end date" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+			</h:inputText>	
+			<br />
+			
+			<h:selectOneMenu value="#{teacherMB.teacher.school}"
+				converter="com.eheinen.school.SchoolConverter">
+				<f:selectItem itemLabel="Select a school" />
+				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
+					itemLabel="#{school.name}" itemValue="#{school}" />				
+			</h:selectOneMenu>
+			<br />
+
+			<h:inputText value="#{teacherMB.teacher.address.country}" id="teacherCountry"
+				a:placeholder="Type the country" a:class="required" />
+			<br />
+
+			<h:inputText value="#{teacherMB.teacher.address.state}" id="teacherState"
+				a:placeholder="Type the state" a:class="required" />
+			<br />
+
+			<h:inputText value="#{teacherMB.teacher.address.city}" id="teacherCity"
+				a:placeholder="Type the city" a:class="required" />
+			<br />
+
+			<h:inputText value="#{teacherMB.teacher.address.address}" id="teacherAddress"
+				a:placeholder="Type the address" a:class="required" />
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{teacherMB.createTeacher()}">
+					<h:graphicImage library="images" name="#{teacherMB.actions.image}" />
+					<h:outputLabel value="#{teacherMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{teacherMB.getTeacherList()}" var="teacher">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{teacherMB.removeTeacher()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{teacher.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{teacherMB.prepareToEdit()}">
+								<f:param name="id" value="#{teacher.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{teacher.name}" outcome="teacher" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">CPF</f:facet>
+					<h:outputText value="#{teacher.cpf}" outcome="teacher" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Gender</f:facet>
+					<h:outputText value="#{teacher.gender}" outcome="teacher" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Telephone</f:facet>
+					<h:outputText value="#{teacher.telephone}" outcome="teacher" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					<h:outputText value="#{teacher.email}" outcome="teacher" />
+				</h:column>
+		
+				
+				<h:column>
+					<f:facet name="header">School</f:facet>
+					<h:outputText value="#{teacher.school.name}" outcome="school" />
+				</h:column>
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

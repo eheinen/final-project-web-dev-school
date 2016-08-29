@@ -1,0 +1,96 @@
+<ui:composition template="../../Layouts/base_layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Courses</ui:define>
+
+	<ui:define name="message">
+		<div id="message" class="#{courseMB.messages.type}">
+			<h:outputText value="#{courseMB.messages.value}" />
+		</div>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="title">Course</h1>
+
+		<h:form id="form-course">
+		
+			<h:inputText value="#{courseMB.course.name}" id="courseName"
+				a:placeholder="Type the course name" a:autofocus="true"
+				a:class="required" />
+			<br />
+
+			<h:selectOneMenu value="#{courseMB.course.school}"
+				converter="com.eheinen.school.SchoolConverter">
+				<f:selectItem itemLabel="Select a school" />
+				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
+					itemLabel="#{school.name}" itemValue="#{school}" />				
+			</h:selectOneMenu>
+			<br />
+
+			<h:selectOneMenu value="#{courseMB.course.knowledgeArea}"
+				converter="com.eheinen.school.KnowledgeAreaConverter">
+				<f:selectItem itemLabel="Select a knowledge area" />
+				<f:selectItems value="#{knowAreaMB.getKnowledgeAreaList()}" var="knowledgeArea"
+					itemLabel="#{knowledgeArea.name}" itemValue="#{knowledgeArea}" />				
+			</h:selectOneMenu>
+			<br />
+
+			<div class="btn-default">
+				<h:commandLink action="#{courseMB.createCourse()}">
+					<h:graphicImage library="images" name="#{courseMB.actions.image}" />
+					<h:outputLabel value="#{courseMB.actions.value}" />
+				</h:commandLink>
+			</div>
+
+		</h:form>
+
+		<div class="table-default">
+			<h:dataTable value="#{courseMB.getCourseList()}" var="course">
+
+				<h:column headerClass="action">
+					<f:facet name="header">Actions</f:facet>
+					<h:form id="form-action">
+						<div class="btn-actions">
+							<h:commandLink action="#{courseMB.removeCourse()}"
+								onclick="return confirmDelete()">
+								<f:param name="id" value="#{course.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="remove.png" />
+								</div>
+							</h:commandLink>
+							<h:commandLink action="#{courseMB.prepareToEdit()}">
+								<f:param name="id" value="#{course.id}" />
+								<div class="btn-action">
+									<h:graphicImage library="images" name="edit.png" />
+								</div>
+							</h:commandLink>
+						</div>
+					</h:form>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">School</f:facet>
+					<h:outputText value="#{course.school.name}" outcome="school" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{course.name}" outcome="course" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Knowledge Area</f:facet>
+					<h:outputText value="#{course.knowledgeArea.name}" outcome="knowlegdeArea" />
+				</h:column>
+
+			</h:dataTable>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
