@@ -19,13 +19,15 @@
 
 		<h:form id="form-employee">
 
+			<h:outputLabel value="Name" for="employeeName" />
 			<h:inputText value="#{employeeMB.employee.name}" id="employeeName"
 				a:placeholder="Type the employee name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
+			<h:outputLabel value="CPF" for="employeeCpf" />
 			<h:inputText value="#{employeeMB.employee.cpf}"
-				a:placeholder="Type the CPF" a:class="required" />
+				a:placeholder="Type the CPF" a:class="required" id="employeeCpf"/>
 			<br />
 			
 			<h:selectOneMenu value="#{employeeMB.employee.gender}" >
@@ -40,40 +42,48 @@
 			</h:selectOneMenu>
 			<br />
 			
+			<h:outputLabel value="Birthdate" for="birthdate" />
 			<h:inputText value="#{employeeMB.employee.birthdate}"
-				a:placeholder="Type the birthdate" >
+				a:placeholder="Type the birthdate" id="birthdate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
 			
+			<h:outputLabel value="Telephone" for="telephone" />
 			<h:inputText value="#{employeeMB.employee.telephone}"
-				a:placeholder="Type the telephone" a:class="required" />
+				a:placeholder="Type the telephone" a:class="required" id="telephone"/>
 			<br />
 			
+			<h:outputLabel value="Telephone" for="telephone" />
 			<h:inputText value="#{employeeMB.employee.email}"
-				a:placeholder="Type the email" a:class="required" />
+				a:placeholder="Type the email" a:class="required" id="telephone"/>
 			<br />
 			
+			<h:outputLabel value="Role" for="role" />
 			<h:inputText value="#{employeeMB.employee.role}"
-				a:placeholder="Type the role" a:class="required" />
+				a:placeholder="Type the role" a:class="required" id="role"/>
 			<br />
 			
+			<h:outputLabel value="Salary per hour" for="salaryPerHour" />
 			<h:inputText value="#{employeeMB.employee.salaryPerHour}" id="salaryPerHour"
 				a:placeholder="Type the salary per hour" a:class="required" />
 			<br />
 			
+			<h:outputLabel value="Weekly hour" for="weeklyHour" />
 			<h:inputText value="#{employeeMB.employee.weeklyHour}" id="weeklyHour"
-				a:placeholder="Type the weekly hour" a:class="required" />
+				a:placeholder="Type the weekly hour" a:class="required"/>
 			<br />
 			
+			<h:outputLabel value="Start date" for="startdate" />
 			<h:inputText value="#{employeeMB.employee.engagedStartDate}"
-				a:placeholder="Type the engaged start date" a:class="required" >
+				a:placeholder="Type the engaged start date" a:class="required" id="startdate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
 			
+			<h:outputLabel value="Engaged end date" for="engagedEndDate" />
 			<h:inputText value="#{employeeMB.employee.engagedEndDate}"
-				a:placeholder="Type the engaged end date" >
+				a:placeholder="Type the engaged end date" id="engagedEndDate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
@@ -86,18 +96,22 @@
 			</h:selectOneMenu>
 			<br />
 
+			<h:outputLabel value="Countrye" for="employeeCountry" />
 			<h:inputText value="#{employeeMB.employee.address.country}" id="employeeCountry"
 				a:placeholder="Type the country" a:class="required" />
 			<br />
 
+			<h:outputLabel value="State" for="employeeState" />
 			<h:inputText value="#{employeeMB.employee.address.state}" id="employeeState"
 				a:placeholder="Type the state" a:class="required" />
 			<br />
 
+			<h:outputLabel value="City" for="employeeCity" />
 			<h:inputText value="#{employeeMB.employee.address.city}" id="employeeCity"
 				a:placeholder="Type the city" a:class="required" />
 			<br />
 
+			<h:outputLabel value="Address" for="employeeAddress" />
 			<h:inputText value="#{employeeMB.employee.address.address}" id="employeeAddress"
 				a:placeholder="Type the address" a:class="required" />
 			<br />

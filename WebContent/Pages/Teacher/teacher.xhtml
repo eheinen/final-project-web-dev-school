@@ -19,13 +19,15 @@
 
 		<h:form id="form-teacher">
 
+			<h:outputLabel value="Name" for="teacherName" />
 			<h:inputText value="#{teacherMB.teacher.name}" id="teacherName"
 				a:placeholder="Type the teacher name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
+			<h:outputLabel value="CPF" for="teacherCpf" />
 			<h:inputText value="#{teacherMB.teacher.cpf}"
-				a:placeholder="Type the CPF" a:class="required" />
+				a:placeholder="Type the CPF" a:class="required" id="teacherCpf"/>
 			<br />
 			
 			<h:selectOneMenu value="#{teacherMB.teacher.gender}" >
@@ -34,36 +36,43 @@
 			</h:selectOneMenu>
 			<br />
 			
+			<h:outputLabel value="Birthdate" for="teacherBirthdate" />
 			<h:inputText value="#{teacherMB.teacher.birthdate}"
-				a:placeholder="Type the birthdate" >
+				a:placeholder="Type the birthdate" id="teacherBirthdate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
 			
+			<h:outputLabel value="Telephone" for="teacherTelephone" />
 			<h:inputText value="#{teacherMB.teacher.telephone}"
-				a:placeholder="Type the telephone" a:class="required" />
+				a:placeholder="Type the telephone" a:class="required" id="teacherTelephone"/>
 			<br />
 			
+			<h:outputLabel value="Email" for="teacherEmail" />
 			<h:inputText value="#{teacherMB.teacher.email}"
-				a:placeholder="Type the email" a:class="required" />
+				a:placeholder="Type the email" a:class="required" id="teacherEmail"/>
 			<br />
 			
+			<h:outputLabel value="Salary per hour" for="salaryPerHour" />
 			<h:inputText value="#{teacherMB.teacher.salaryPerHour}" id="salaryPerHour"
 				a:placeholder="Type the salary per hour" a:class="required" />
 			<br />
 			
+			<h:outputLabel value="Weekly hour" for="weeklyHour" />
 			<h:inputText value="#{teacherMB.teacher.weeklyHour}" id="weeklyHour"
 				a:placeholder="Type the weekly hour" a:class="required" />
 			<br />
 			
+			<h:outputLabel value="Engaged start date" for="startDate" />
 			<h:inputText value="#{teacherMB.teacher.engagedStartDate}"
-				a:placeholder="Type the engaged start date" a:class="required" >
+				a:placeholder="Type the engaged start date" a:class="required" id="startDate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
 			
+			<h:outputLabel value="Engaged end date" for="endDate" />
 			<h:inputText value="#{teacherMB.teacher.engagedEndDate}"
-				a:placeholder="Type the engaged end date" >
+				a:placeholder="Type the engaged end date" id="endDate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
@@ -76,18 +85,22 @@
 			</h:selectOneMenu>
 			<br />
 
+			<h:outputLabel value="Country" for="teacherCountry" />
 			<h:inputText value="#{teacherMB.teacher.address.country}" id="teacherCountry"
 				a:placeholder="Type the country" a:class="required" />
 			<br />
 
+			<h:outputLabel value="State" for="teacherState" />
 			<h:inputText value="#{teacherMB.teacher.address.state}" id="teacherState"
 				a:placeholder="Type the state" a:class="required" />
 			<br />
 
+			<h:outputLabel value="City" for="teacherCity" />
 			<h:inputText value="#{teacherMB.teacher.address.city}" id="teacherCity"
 				a:placeholder="Type the city" a:class="required" />
 			<br />
 
+			<h:outputLabel value="Address" for="teacherAddress" />
 			<h:inputText value="#{teacherMB.teacher.address.address}" id="teacherAddress"
 				a:placeholder="Type the address" a:class="required" />
 			<br />

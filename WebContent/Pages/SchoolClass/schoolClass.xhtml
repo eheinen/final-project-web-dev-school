@@ -19,6 +19,7 @@
 
 		<h:form id="form-schoolClass">
 
+			<h:outputLabel value="Class name" for="schoolClassName" />
 			<h:inputText value="#{schoolClassMB.schoolClass.name}" id="schoolClassName"
 				a:placeholder="Type the school Class name" a:autofocus="true"
 				a:class="required" />
@@ -52,14 +53,16 @@
 			</h:selectOneMenu>
 			<br />
 			
+			<h:outputLabel value="Start date" for="startDate" />
 			<h:inputText value="#{schoolClassMB.schoolClass.startDate}"
-				a:placeholder="Type the start date" >
+				a:placeholder="Type the start date" id="startDate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />
 			
+			<h:outputLabel value="End date" for="endDate" />
 			<h:inputText value="#{schoolClassMB.schoolClass.endDate}"
-				a:placeholder="Type the end date" >
+				a:placeholder="Type the end date" id="endDate">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>  
 			</h:inputText>	
 			<br />

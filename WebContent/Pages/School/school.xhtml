@@ -27,28 +27,34 @@
 			</h:selectOneMenu>
 			<br />
 
+			<h:outputLabel value="Name" for="schoolName" />
 			<h:inputText value="#{schoolMB.school.name}" id="schoolName"
 				a:placeholder="Type the school name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
+			<h:outputLabel value="Average to approve" for="schoolMinAverage" />
 			<h:inputText value="#{schoolMB.school.minAverage}"
 				id="schoolMinAverage"
 				a:placeholder="Type the min average to approve" a:class="required" />
 			<br />
 
+			<h:outputLabel value="Country" for="schoolCountry" />
 			<h:inputText value="#{schoolMB.school.address.country}" id="schoolCountry"
 				a:placeholder="Type the country" a:class="required" />
 			<br />
 
+			<h:outputLabel value="State" for="schoolState" />
 			<h:inputText value="#{schoolMB.school.address.state}" id="schoolState"
 				a:placeholder="Type the state" a:class="required" />
 			<br />
 
+			<h:outputLabel value="City" for="schoolCity" />
 			<h:inputText value="#{schoolMB.school.address.city}" id="schoolCity"
 				a:placeholder="Type the city" a:class="required" />
 			<br />
 
+			<h:outputLabel value="Address" for="schoolAddress" />
 			<h:inputText value="#{schoolMB.school.address.address}" id="schoolAddress"
 				a:placeholder="Type the address" a:class="required" />
 			<br />

@@ -19,11 +19,13 @@
 
 		<h:form id="form-exam">
 
+			<h:outputLabel value="Name" for="examName" />
 			<h:inputText value="#{examMB.exam.name}" id="examName"
 				a:placeholder="Type the exam name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
+			<h:outputLabel value="% of points" for="examPointsPercent" />
 			<h:inputText value="#{examMB.exam.pointsPercent}" id="examPointsPercent"
 				a:placeholder="Type the % of points" a:autofocus="true"
 				a:class="required" />

@@ -19,19 +19,21 @@
 
 		<h:form id="form-classroom">
 
+			<h:outputLabel value="Room number" for="roomNumber" />
 			<h:inputText value="#{classroomMB.classroom.roomNumber}"
 				id="roomNumber" a:placeholder="Type the room number"
 				a:autofocus="true" a:class="required" />
 			<br />
-
+			
 			<h:selectOneMenu value="#{classroomMB.classroom.shift}">
 				<f:selectItem itemLabel="Select a shift" />
 				<f:selectItems value="#{enumMB.getShiftList()}" />
 			</h:selectOneMenu>
 			<br />
 
+			<h:outputLabel value="Class date" for="classDate" />
 			<h:inputText value="#{classroomMB.classroom.classDate}"
-				a:placeholder="Type the class date">
+				a:placeholder="Type the class date" id="classDate">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:inputText>
 			<br />
