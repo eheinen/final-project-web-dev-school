@@ -5,20 +5,20 @@
                       http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 	<persistence-unit name="jpaPU" transaction-type="RESOURCE_LOCAL">
-		<class>com.eheinen.school.entity.Address</class>
-		<class>com.eheinen.school.entity.person.Employee</class>
-		<class>com.eheinen.school.entity.person.Person</class>
-		<class>com.eheinen.school.entity.person.Student</class>
-		<class>com.eheinen.school.entity.person.Teacher</class>
-		<class>com.eheinen.school.entity.person.User</class>
-		<class>com.eheinen.school.entity.school.Classroom</class>
-		<class>com.eheinen.school.entity.school.Course</class>
-		<class>com.eheinen.school.entity.school.Department</class>
-		<class>com.eheinen.school.entity.school.Discipline</class>
-		<class>com.eheinen.school.entity.school.Exam</class>
-		<class>com.eheinen.school.entity.school.KnowledgeArea</class>
-		<class>com.eheinen.school.entity.school.School</class>
-		<class>com.eheinen.school.entity.school.SchoolClass</class>
+		<class>com.fiap.school.entity.Address</class>
+		<class>com.fiap.school.entity.person.Employee</class>
+		<class>com.fiap.school.entity.person.Person</class>
+		<class>com.fiap.school.entity.person.Student</class>
+		<class>com.fiap.school.entity.person.Teacher</class>
+		<class>com.fiap.school.entity.person.User</class>
+		<class>com.fiap.school.entity.school.Classroom</class>
+		<class>com.fiap.school.entity.school.Course</class>
+		<class>com.fiap.school.entity.school.Department</class>
+		<class>com.fiap.school.entity.school.Discipline</class>
+		<class>com.fiap.school.entity.school.Exam</class>
+		<class>com.fiap.school.entity.school.KnowledgeArea</class>
+		<class>com.fiap.school.entity.school.School</class>
+		<class>com.fiap.school.entity.school.SchoolClass</class>
 		<properties>
 			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
 			<property name="hibernate.hbm2ddl.auto" value="update" />
