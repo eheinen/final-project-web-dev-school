@@ -76,6 +76,7 @@ public class EmployeeMB implements Serializable {
 					addDao.insert(employee.getAddress());
 					employee.setAddress(employee.getAddress());
 
+					employee.setPersonProfile(PersonProfile.EMPLOYEE);
 					empDao.insert(employee);
 					messages.setInsertMessage("Employee");
 				}				

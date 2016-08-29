@@ -2,7 +2,6 @@ package com.fiap.school.entity.person;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,8 +42,8 @@ public class User implements Serializable {
 
 	public User(String username, String password, Profile profile) {
 		super();
-		this.username = username;
-		this.password = password;
+		this.username = clearData(username);
+		this.password = clearData(password);
 		this.profile = profile;
 	}
 
@@ -61,7 +60,7 @@ public class User implements Serializable {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.username = clearData(username);
 	}
 
 	public String getPassword() {
@@ -69,7 +68,7 @@ public class User implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = clearData(password);
 	}
 
 	public Profile getProfile() {
@@ -84,4 +83,8 @@ public class User implements Serializable {
 		return serialVersionUID;
 	}
 
+	private String clearData(String cpf){
+		return cpf.replace(".", "").replace("-", "");
+	}
+	
 }

@@ -116,7 +116,7 @@ public class ClassroomMB implements Serializable {
 
 	private List<Object> getRequiredFields() {
 		try {
-			List<Object> fields = new ArrayList<>();
+			List<Object> fields = new ArrayList<Object>();
 			fields.add(classroom.getRoomNumber());
 			fields.add(classroom.getShift());
 			fields.add(classroom.getClassDate());
