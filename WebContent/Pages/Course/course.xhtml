@@ -18,8 +18,8 @@
 		<h1 class="title">Course</h1>
 
 		<h:form id="form-course">
-		
-			<h:outputLabel value="Name" for="courseName" />
+
+			<h:outputLabel value="Name" for="courseName" /><br />
 			<h:inputText value="#{courseMB.course.name}" id="courseName"
 				a:placeholder="Type the course name" a:autofocus="true"
 				a:class="required" />
@@ -29,7 +29,7 @@
 				converter="com.eheinen.school.SchoolConverter">
 				<f:selectItem itemLabel="Select a school" />
 				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
-					itemLabel="#{school.name}" itemValue="#{school}" />				
+					itemLabel="#{school.name}" itemValue="#{school}" />
 			</h:selectOneMenu>
 			<br />
 
@@ -37,7 +37,7 @@
 				converter="com.eheinen.school.KnowledgeAreaConverter">
 				<f:selectItem itemLabel="Select a knowledge area" />
 				<f:selectItems value="#{knowAreaMB.getKnowledgeAreaList()}" var="knowledgeArea"
-					itemLabel="#{knowledgeArea.name}" itemValue="#{knowledgeArea}" />				
+					itemLabel="#{knowledgeArea.name}" itemValue="#{knowledgeArea}" />
 			</h:selectOneMenu>
 			<br />
 
@@ -83,7 +83,7 @@
 					<f:facet name="header">Name</f:facet>
 					<h:outputText value="#{course.name}" outcome="course" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Knowledge Area</f:facet>
 					<h:outputText value="#{course.knowledgeArea.name}" outcome="knowlegdeArea" />

@@ -23,38 +23,38 @@
 				converter="com.eheinen.school.DepartmentConverter">
 				<f:selectItem itemLabel="Select a department" />
 				<f:selectItems value="#{departMB.getDepartmentList()}" var="depart"
-					itemLabel="#{depart.name}" itemValue="#{depart}" />				
+					itemLabel="#{depart.name}" itemValue="#{depart}" />
 			</h:selectOneMenu>
 			<br />
 
-			<h:outputLabel value="Name" for="schoolName" />
+			<h:outputLabel value="Name" for="schoolName" /><br />
 			<h:inputText value="#{schoolMB.school.name}" id="schoolName"
 				a:placeholder="Type the school name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
-			<h:outputLabel value="Average to approve" for="schoolMinAverage" />
+			<h:outputLabel value="Average to approve" for="schoolMinAverage" /><br />
 			<h:inputText value="#{schoolMB.school.minAverage}"
 				id="schoolMinAverage"
 				a:placeholder="Type the min average to approve" a:class="required" />
 			<br />
 
-			<h:outputLabel value="Country" for="schoolCountry" />
+			<h:outputLabel value="Country" for="schoolCountry" /><br />
 			<h:inputText value="#{schoolMB.school.address.country}" id="schoolCountry"
 				a:placeholder="Type the country" a:class="required" />
 			<br />
 
-			<h:outputLabel value="State" for="schoolState" />
+			<h:outputLabel value="State" for="schoolState" /><br />
 			<h:inputText value="#{schoolMB.school.address.state}" id="schoolState"
 				a:placeholder="Type the state" a:class="required" />
 			<br />
 
-			<h:outputLabel value="City" for="schoolCity" />
+			<h:outputLabel value="City" for="schoolCity" /><br />
 			<h:inputText value="#{schoolMB.school.address.city}" id="schoolCity"
 				a:placeholder="Type the city" a:class="required" />
 			<br />
 
-			<h:outputLabel value="Address" for="schoolAddress" />
+			<h:outputLabel value="Address" for="schoolAddress" /><br />
 			<h:inputText value="#{schoolMB.school.address.address}" id="schoolAddress"
 				a:placeholder="Type the address" a:class="required" />
 			<br />
@@ -102,7 +102,7 @@
 					<f:facet name="header">Name</f:facet>
 					<h:outputText value="#{school.name}" outcome="school" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">School Avarage</f:facet>
 					<h:outputText value="#{school.minAverage}" outcome="school" />

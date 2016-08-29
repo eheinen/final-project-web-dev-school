@@ -27,9 +27,9 @@
 			</h:selectOneMenu>
 			<br />
 
-			<h:outputLabel value="Exam date" for="examResultDate" />
+			<h:outputLabel value="Exam date" for="examResultDate" /><br />
 			<h:inputText value="#{examResultMB.examResult.date}"
-				a:placeholder="Type the exam date" 
+				a:placeholder="Type the exam date"
 				id="examResultDate" a:class="required">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:inputText>
@@ -43,7 +43,7 @@
 			</h:selectOneMenu>
 			<br />
 
-			<h:outputLabel value="Exam date" for="examResultGrade" />
+			<h:outputLabel value="Exam result grade" for="examResultGrade" /><br />
 			<h:inputText value="#{examResultMB.examResult.grade}"
 				id="examResultGrade" a:class="required" />
 			<br />

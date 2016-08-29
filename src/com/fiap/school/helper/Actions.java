@@ -44,7 +44,7 @@ public class Actions implements Serializable {
 	}
 	
 	public void setSearchAction(){
-		image = "seacrh.png";
+		image = "search.png";
 		value = "Search";
 	}
 	

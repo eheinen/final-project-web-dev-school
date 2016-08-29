@@ -19,94 +19,94 @@
 
 		<h:form id="form-student">
 
-			<h:outputLabel value="Name" for="studentName" />
+			<h:outputLabel value="Name" for="studentName" /><br />
 			<h:inputText value="#{studentMB.student.name}" id="studentName"
 				a:placeholder="Type the student name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
-			<h:outputLabel value="CPF" for="studentcpf" />
+			<h:outputLabel value="CPF" for="studentcpf" /><br />
 			<h:inputText value="#{studentMB.student.cpf}"
 				a:placeholder="Type the CPF" a:class="required" id="studentcpf"/>
 			<br />
-			
+
 			<h:selectOneMenu value="#{studentMB.student.gender}" >
 				<f:selectItem itemLabel="Select a gender" />
 			    <f:selectItems value="#{enumMB.getGenderList()}" />
 			</h:selectOneMenu>
 			<br />
-			
-			<h:outputLabel value="Birthdate" for="studentbirthdate" />
+
+			<h:outputLabel value="Birthdate" for="studentbirthdate" /><br />
 			<h:inputText value="#{studentMB.student.birthdate}"
 				a:placeholder="Type the birthdate" id="studentbirthdate">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>  
-			</h:inputText>	
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
 			<br />
-			
-			<h:outputLabel value="Telephone" for="studenttelephone" />
+
+			<h:outputLabel value="Telephone" for="studenttelephone" /><br />
 			<h:inputText value="#{studentMB.student.telephone}"
 				a:placeholder="Type the telephone" a:class="required" id="studenttelephone"/>
 			<br />
-			
-			<h:outputLabel value="Email" for="studentemail" />
+
+			<h:outputLabel value="Email" for="studentemail" /><br />
 			<h:inputText value="#{studentMB.student.email}"
 				a:placeholder="Type the email" a:class="required" id="studentemail"/>
 			<br />
-			
-			<h:outputLabel value="Start date" for="startdate" />
+
+			<h:outputLabel value="Start date" for="startdate" /><br />
 			<h:inputText value="#{studentMB.student.engagedStartDate}"
 				a:placeholder="Type the engaged start date" a:class="required" id="startdate">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>  
-			</h:inputText>	
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
 			<br />
-			
-			<h:outputLabel value="Engaged end date" for="engagedEndDate" />
+
+			<h:outputLabel value="Engaged end date" for="engagedEndDate" /><br />
 			<h:inputText value="#{studentMB.student.engagedEndDate}"
 				a:placeholder="Type the engaged end date"  id="engagedEndDate">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>  
-			</h:inputText>	
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
 			<br />
-			
+
 			<h:selectOneMenu value="#{studentMB.student.school}"
 				converter="com.eheinen.school.SchoolConverter">
 				<f:selectItem itemLabel="Select a school" />
 				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
-					itemLabel="#{school.name}" itemValue="#{school}" />				
+					itemLabel="#{school.name}" itemValue="#{school}" />
 			</h:selectOneMenu>
 			<br />
-			
+
 			<h:selectOneMenu value="#{studentMB.student.course}"
 				converter="com.eheinen.school.CourseConverter">
 				<f:selectItem itemLabel="Select a course" />
 				<f:selectItems value="#{courseMB.getCourseList()}" var="course"
-					itemLabel="#{course.name}" itemValue="#{course}" />				
+					itemLabel="#{course.name}" itemValue="#{course}" />
 			</h:selectOneMenu>
 			<br />
-			
+
 			<h:selectOneMenu value="#{studentMB.student.schoolClass}"
 				converter="com.eheinen.school.SchoolClassConverter">
 				<f:selectItem itemLabel="Select a school class" />
 				<f:selectItems value="#{schoolClassMB.getSchoolClassList()}" var="schoolClass"
-					itemLabel="#{schoolClass.name}" itemValue="#{schoolClass}" />				
+					itemLabel="#{schoolClass.name}" itemValue="#{schoolClass}" />
 			</h:selectOneMenu>
 			<br />
 
-			<h:outputLabel value="Country" for="studentCountry" />
+			<h:outputLabel value="Country" for="studentCountry" /><br />
 			<h:inputText value="#{studentMB.student.address.country}" id="studentCountry"
 				a:placeholder="Type the country" a:class="required" />
 			<br />
 
-			<h:outputLabel value="State" for="studentState" />
+			<h:outputLabel value="State" for="studentState" /><br />
 			<h:inputText value="#{studentMB.student.address.state}" id="studentState"
 				a:placeholder="Type the state" a:class="required" />
 			<br />
 
-			<h:outputLabel value="City" for="studentCity" />
+			<h:outputLabel value="City" for="studentCity" /><br />
 			<h:inputText value="#{studentMB.student.address.city}" id="studentCity"
 				a:placeholder="Type the city" a:class="required" />
 			<br />
 
-			<h:outputLabel value="Address" for="studentAddress" />
+			<h:outputLabel value="Address" for="studentAddress" /><br />
 			<h:inputText value="#{studentMB.student.address.address}" id="studentAddress"
 				a:placeholder="Type the address" a:class="required" />
 			<br />
@@ -148,37 +148,37 @@
 					<f:facet name="header">Name</f:facet>
 					<h:outputText value="#{student.name}" outcome="student" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">CPF</f:facet>
 					<h:outputText value="#{student.cpf}" outcome="student" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Gender</f:facet>
 					<h:outputText value="#{student.gender}" outcome="student" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Telephone</f:facet>
 					<h:outputText value="#{student.telephone}" outcome="student" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Email</f:facet>
 					<h:outputText value="#{student.email}" outcome="student" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">School</f:facet>
 					<h:outputText value="#{student.school.name}" outcome="school" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Course</f:facet>
 					<h:outputText value="#{student.course.name}" outcome="school" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">School Class</f:facet>
 					<h:outputText value="#{student.schoolClass.name}" outcome="school" />

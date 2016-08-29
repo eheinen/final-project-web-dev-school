@@ -19,19 +19,19 @@
 
 		<h:form id="form-classroom">
 
-			<h:outputLabel value="Room number" for="roomNumber" />
+			<h:outputLabel value="Room number" for="roomNumber" /><br />
 			<h:inputText value="#{classroomMB.classroom.roomNumber}"
 				id="roomNumber" a:placeholder="Type the room number"
 				a:autofocus="true" a:class="required" />
 			<br />
-			
+
 			<h:selectOneMenu value="#{classroomMB.classroom.shift}">
 				<f:selectItem itemLabel="Select a shift" />
 				<f:selectItems value="#{enumMB.getShiftList()}" />
 			</h:selectOneMenu>
 			<br />
 
-			<h:outputLabel value="Class date" for="classDate" />
+			<h:outputLabel value="Class date" for="classDate" /><br />
 			<h:inputText value="#{classroomMB.classroom.classDate}"
 				a:placeholder="Type the class date" id="classDate">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
@@ -45,7 +45,7 @@
 					itemLabel="#{school.name}" itemValue="#{school}" />
 			</h:selectOneMenu>
 			<br />
-			
+
 			<h:selectOneMenu value="#{classroomMB.classroom.course}"
 				converter="com.eheinen.school.CourseConverter">
 				<f:selectItem itemLabel="Select a course" />
@@ -79,7 +79,7 @@
 					itemValue="#{schoolClass}" />
 			</h:selectOneMenu>
 			<br />
-			
+
 			<div class="btn-default">
 				<h:commandLink action="#{classroomMB.createClassroom()}">
 					<h:graphicImage library="images" name="#{classroomMB.actions.image}" />
@@ -135,12 +135,12 @@
 					<h:outputText value="#{classroom.schoolClass.name}"
 						outcome="classroom" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Room Number</f:facet>
 					<h:outputText value="#{classroom.roomNumber}" outcome="classroom" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Date</f:facet>
 					<h:outputText value="#{classroom.classDate}" outcome="classroom">

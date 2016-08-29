@@ -20,8 +20,8 @@
 		<class>com.fiap.school.entity.school.School</class>
 		<class>com.fiap.school.entity.school.SchoolClass</class>
 		<properties>
-			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fiap_school" />

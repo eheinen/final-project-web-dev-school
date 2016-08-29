@@ -19,99 +19,99 @@
 
 		<h:form id="form-employee">
 
-			<h:outputLabel value="Name" for="employeeName" />
+			<h:outputLabel value="Name" for="employeeName" /><br />
 			<h:inputText value="#{employeeMB.employee.name}" id="employeeName"
 				a:placeholder="Type the employee name" a:autofocus="true"
 				a:class="required" />
 			<br />
 
-			<h:outputLabel value="CPF" for="employeeCpf" />
+			<h:outputLabel value="CPF" for="employeeCpf" /><br />
 			<h:inputText value="#{employeeMB.employee.cpf}"
 				a:placeholder="Type the CPF" a:class="required" id="employeeCpf"/>
 			<br />
-			
+
 			<h:selectOneMenu value="#{employeeMB.employee.gender}" >
 				<f:selectItem itemLabel="Select a gender" />
 			    <f:selectItems value="#{enumMB.getGenderList()}" />
 			</h:selectOneMenu>
 			<br />
-			
+
 			<h:selectOneMenu value="#{employeeMB.employee.user.profile}" >
 				<f:selectItem itemLabel="Select a user profile" />
 			    <f:selectItems value="#{enumMB.getProfileEmployeeList()}" />
 			</h:selectOneMenu>
 			<br />
-			
-			<h:outputLabel value="Birthdate" for="birthdate" />
+
+			<h:outputLabel value="Birthdate" for="birthdate" /><br />
 			<h:inputText value="#{employeeMB.employee.birthdate}"
 				a:placeholder="Type the birthdate" id="birthdate">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>  
-			</h:inputText>	
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
 			<br />
-			
-			<h:outputLabel value="Telephone" for="telephone" />
+
+			<h:outputLabel value="Telephone" for="telephone" /><br />
 			<h:inputText value="#{employeeMB.employee.telephone}"
 				a:placeholder="Type the telephone" a:class="required" id="telephone"/>
 			<br />
-			
-			<h:outputLabel value="Telephone" for="telephone" />
+
+			<h:outputLabel value="Email" for="email" /><br />
 			<h:inputText value="#{employeeMB.employee.email}"
-				a:placeholder="Type the email" a:class="required" id="telephone"/>
+				a:placeholder="Type the email" a:class="required" id="email"/>
 			<br />
-			
-			<h:outputLabel value="Role" for="role" />
+
+			<h:outputLabel value="Role" for="role" /><br />
 			<h:inputText value="#{employeeMB.employee.role}"
 				a:placeholder="Type the role" a:class="required" id="role"/>
 			<br />
-			
-			<h:outputLabel value="Salary per hour" for="salaryPerHour" />
+
+			<h:outputLabel value="Salary per hour" for="salaryPerHour" /><br />
 			<h:inputText value="#{employeeMB.employee.salaryPerHour}" id="salaryPerHour"
 				a:placeholder="Type the salary per hour" a:class="required" />
 			<br />
-			
-			<h:outputLabel value="Weekly hour" for="weeklyHour" />
+
+			<h:outputLabel value="Weekly hour" for="weeklyHour" /><br />
 			<h:inputText value="#{employeeMB.employee.weeklyHour}" id="weeklyHour"
 				a:placeholder="Type the weekly hour" a:class="required"/>
 			<br />
-			
-			<h:outputLabel value="Start date" for="startdate" />
+
+			<h:outputLabel value="Start date" for="startdate" /><br />
 			<h:inputText value="#{employeeMB.employee.engagedStartDate}"
 				a:placeholder="Type the engaged start date" a:class="required" id="startdate">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>  
-			</h:inputText>	
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
 			<br />
-			
-			<h:outputLabel value="Engaged end date" for="engagedEndDate" />
+
+			<h:outputLabel value="Engaged end date" for="engagedEndDate" /><br />
 			<h:inputText value="#{employeeMB.employee.engagedEndDate}"
 				a:placeholder="Type the engaged end date" id="engagedEndDate">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>  
-			</h:inputText>	
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
 			<br />
-			
+
 			<h:selectOneMenu value="#{employeeMB.employee.school}"
 				converter="com.eheinen.school.SchoolConverter">
 				<f:selectItem itemLabel="Select a school" />
 				<f:selectItems value="#{schoolMB.getSchoolList()}" var="school"
-					itemLabel="#{school.name}" itemValue="#{school}" />				
+					itemLabel="#{school.name}" itemValue="#{school}" />
 			</h:selectOneMenu>
 			<br />
 
-			<h:outputLabel value="Countrye" for="employeeCountry" />
+			<h:outputLabel value="Country" for="employeeCountry" /><br />
 			<h:inputText value="#{employeeMB.employee.address.country}" id="employeeCountry"
 				a:placeholder="Type the country" a:class="required" />
 			<br />
 
-			<h:outputLabel value="State" for="employeeState" />
+			<h:outputLabel value="State" for="employeeState" /><br />
 			<h:inputText value="#{employeeMB.employee.address.state}" id="employeeState"
 				a:placeholder="Type the state" a:class="required" />
 			<br />
 
-			<h:outputLabel value="City" for="employeeCity" />
+			<h:outputLabel value="City" for="employeeCity" /><br />
 			<h:inputText value="#{employeeMB.employee.address.city}" id="employeeCity"
 				a:placeholder="Type the city" a:class="required" />
 			<br />
 
-			<h:outputLabel value="Address" for="employeeAddress" />
+			<h:outputLabel value="Address" for="employeeAddress" /><br />
 			<h:inputText value="#{employeeMB.employee.address.address}" id="employeeAddress"
 				a:placeholder="Type the address" a:class="required" />
 			<br />
@@ -153,33 +153,33 @@
 					<f:facet name="header">Name</f:facet>
 					<h:outputText value="#{employee.name}" outcome="employee" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Role</f:facet>
 					<h:outputText value="#{employee.role}" outcome="employee" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">CPF</f:facet>
 					<h:outputText value="#{employee.cpf}" outcome="employee" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Gender</f:facet>
 					<h:outputText value="#{employee.gender}" outcome="employee" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Telephone</f:facet>
 					<h:outputText value="#{employee.telephone}" outcome="employee" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Email</f:facet>
 					<h:outputText value="#{employee.email}" outcome="employee" />
 				</h:column>
-		
-				
+
+
 				<h:column>
 					<f:facet name="header">School</f:facet>
 					<h:outputText value="#{employee.school.name}" outcome="school" />

@@ -19,17 +19,17 @@
 
 		<h:form id="form-discipline">
 
-			<h:outputLabel value="Name" for="disciplineName" />
+			<h:outputLabel value="Name" for="disciplineName" /><br />
 			<h:inputText value="#{discMB.discipline.name}" id="disciplineName"
 				a:placeholder="Type the discipline name" a:autofocus="true"
 				a:class="required" />
 			<br />
-			
+
 			<h:selectOneMenu value="#{discMB.discipline.course}"
 				converter="com.eheinen.school.CourseConverter">
 				<f:selectItem itemLabel="Select a course" />
 				<f:selectItems value="#{courseMB.getCourseList()}" var="course"
-					itemLabel="#{course.name}" itemValue="#{course}" />				
+					itemLabel="#{course.name}" itemValue="#{course}" />
 			</h:selectOneMenu>
 			<br />
 
@@ -70,7 +70,7 @@
 					<f:facet name="header">Name</f:facet>
 					<h:outputText value="#{discipline.name}" outcome="discipline" />
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">Course</f:facet>
 					<h:outputText value="#{discipline.course.name}" outcome="course" />
